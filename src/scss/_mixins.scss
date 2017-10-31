@@ -1,0 +1,59 @@
+//Mixins
+@mixin text-colors() {
+    @each $color in $colors {
+        $color-name: nth($color, 1);
+        $color-hexa: nth($color, 2);
+        &.#{$color-name} {
+            color: $color-hexa;
+        }
+    }
+}
+
+@mixin bg-colors() {
+    @each $color in $colors {
+        $color-name: nth($color, 1);
+        $color-hexa: nth($color, 2);
+        &.#{$color-name} {
+            background-color: $color-hexa;
+        }
+    }
+}
+
+@mixin social-colors() {
+    @each $color in $networks {
+        $color-name: nth($color, 1);
+        $color-hexa: nth($color, 2);
+        &.#{$color-name} {
+            color: $color-hexa;
+        }
+    }
+}
+
+@mixin social-bg-colors() {
+    @each $color in $networks {
+        $color-name: nth($color, 1);
+        $color-hexa: nth($color, 2);
+        &.#{$color-name} {
+            background-color: $color-hexa;
+        }
+    }
+}
+
+@mixin bg-gradient($color-from, $color-to, $direction: 'to bottom') {
+    background: linear-gradient($direction, $color-from 0%, $color-to 100%);
+}
+
+@mixin filter($properties) {
+    // Your vendor prefixing stuff here, I am using Bourbon:
+    @include prefixer(filter, $properties, webkit moz spec);
+}
+
+//Functions
+@function grayscale($value) {
+    @return #{ "grayscale(" + $value + ")" };
+}
+
+@function color($name) {
+    $color: nth($colors, $name);
+    @return nth($color, 2); 
+}

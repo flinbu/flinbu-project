@@ -1,0 +1,34 @@
+//Fonts
+$font-main: 'Roboto', sans-serif;
+$font-titles: 'Maven Pro', sans-serif;
+$general-font-size: 14px;
+
+//Colors
+$colors: ( 
+    gray-darker: #333333, 
+    gray-dark: #666666, 
+    gray: #999999, 
+    gray-light: #BBBBBB, 
+    gray-lighter: #F5F5F5, 
+    gray-bg: #F9F9FB, 
+    gray-blue: #323C47,
+    black: #000000, 
+    white: #FFFFFF, 
+    red: #D8141A,
+    blue: #4DA1FF
+);
+
+//Social networks colors
+$networks: (
+    facebook: $bc-facebook,
+    twitter: $bc-twitter,
+    instagram: $bc-instagram,
+    youtube: $bc-youtube,
+    vimeo: $bc-vimeo-2,
+    google: $bc-google,
+    linkedin: $bc-linkedin,
+    pinterest: $bc-pinterest,
+    dribbble: $bc-dribbble-2,
+    behance: $bc-behance,
+    whatsapp: $bc-whatsapp
+);

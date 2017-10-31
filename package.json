@@ -1,0 +1,55 @@
+{
+  "name": "flinbu-project",
+  "version": "1.0.0",
+  "description": "Create project like flinbu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flinbu/flinbu-project.git"
+  },
+  "author": "Felipe Linares @flinbu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flinbu/flinbu-project/issues"
+  },
+  "homepage": "https://github.com/flinbu/flinbu-project#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "brand-colors": "^2.0.1",
+    "clipboard": "^1.7.1",
+    "commander": "^2.11.0",
+    "embedvideos": "^1.1.9",
+    "flinbu-svg-icons": "^1.0.0",
+    "font-awesome": "git+https://github.com/FortAwesome/Font-Awesome.git",
+    "gmap3": "^7.2.0",
+    "jquery": "^3.2.1",
+    "jquery-sticky": "git+https://github.com/garand/sticky.git",
+    "owl.carousel": "git+https://github.com/OwlCarousel2/OwlCarousel2.git",
+    "popper.js": "^1.12.6",
+    "tether": "^1.4.0",
+    "withinviewport": "^2.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.6",
+    "browser-sync": "^2.18.13",
+    "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-deporder": "^1.1.0",
+    "gulp-download": "0.0.1",
+    "gulp-imagemin": "^3.4.0",
+    "gulp-newer": "^1.3.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-strip-debug": "^1.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "postcss-assets": "^5.0.0"
+  }
+}
