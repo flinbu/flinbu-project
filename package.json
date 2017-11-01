@@ -4,7 +4,14 @@
   "description": "Create project like flinbu",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp",
+    "build": "gulp build",
+    "css": "gulp css",
+    "js": "gulp js",
+    "html": "gulp html",
+    "images": "gulp images",
+    "images-deps": "gulp images-deps",
+    "js-deps": "gulp js-deps"
   },
   "repository": {
     "type": "git",

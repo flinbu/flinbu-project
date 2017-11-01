@@ -9,10 +9,6 @@ const project = {
         js: 'project.scripts',
         css: 'project.css'
     },
-    dir: {
-        src: 'src',
-        build: 'build'
-    },
     serve: {
         proxy: false,
         dir: 'build',
@@ -52,6 +48,10 @@ const project = {
             {
                 src: 'node_modules/clipboard/dist/clipboard.min.js',
                 build: 'build/assets/js'
+            },
+            {
+                src: 'node_modules/flinbu-svg-icons/svg-icons.min.js',
+                build: 'build/assets/js'
             }
         ],
         images: [
@@ -68,8 +68,8 @@ const project = {
 
 /////////////// DON'T MODIFIED FROM THIS POINT //////////////////////
 const dir = {
-        src: project.dir.src,
-        build: project.dir.build      
+        src: 'src',
+        build: 'build'      
       },
       gulp = require('gulp'),
       gutil = require('gulp-util'),
