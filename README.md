@@ -292,6 +292,9 @@ Color is a function that returns color from colors var.
 ...
 ```
 
+## Components
+Check the component [here](COMPONENTS.md)
+
 ## NPM Commands (build, compile)
 There are some command task to execute the build and compiling process for the project.
 
