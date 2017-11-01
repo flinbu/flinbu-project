@@ -54,6 +54,5 @@
 }
 
 @function color($name) {
-    $color: nth($colors, $name);
-    @return nth($color, 2); 
+    @return map-get($color, $name); 
 }
