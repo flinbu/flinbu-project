@@ -83,6 +83,8 @@ const dir = {
       uglify = require('gulp-uglify'),
       sourcemaps = require('gulp-sourcemaps'),
       rename = require('gulp-rename'),
+      inject = require('gulp-inject-file'),
+      replace = require('gulp-inject-element'),
       download = require('gulp-download');
 
 //Browser Sync
@@ -120,6 +122,14 @@ const html = {
     build: dir.build,
     watch: dir.src + '/html/**/*'
 };
+
+var injectJS = '';
+project.dependencies.js.forEach(function (dep) {
+    var depSrc = (dep.src) ? dep.src : dep.download;
+    var depSplit = depSrc.split('/');
+    var depName = depSplit[depSplit.length - 1];
+    injectJS = injectJS + '<script src="assets/js/' + depName + '"></script>' + '\n';
+});
 
 //Images settings
 const images = {
@@ -189,6 +199,8 @@ if (project.dependencies.css) {
     css.dependencies = project.dependencies.css;
 }
 
+var injectCSS = '<link rel="stylesheet" href="' + css.build + '/' + project.filenames.css + '.css" type="text/css" />';
+
 ///////// TASKS ///////////
 //Image processing
 gulp.task('images-deps', () => {
@@ -244,7 +256,20 @@ gulp.task('css', ['images'], () => {
 //HTML Processing
 gulp.task('html', () => {
     gulp.src(html.src)
-        .pipe(newer(html.build))
+        .pipe(inject({
+            pattern: '<!--\\s*inject:<filename>-->'
+        }))
+        .pipe(replace({
+            uses: 'var',
+            find: [
+                'css',
+                'js'
+            ], 
+            injectStrings: [
+                injectCSS,
+                injectJS
+            ]
+        }))
         .pipe(gulp.dest(html.build));
 });
 
