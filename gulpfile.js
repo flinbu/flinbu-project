@@ -117,22 +117,14 @@ if (project.serve.proxy) {
 }
 
 //HTML Settings
-const html = {
+var html = {
     src: dir.src + '/html/**/*',
     build: dir.build,
     watch: dir.src + '/html/**/*'
 };
 
-var injectJS = '';
-project.dependencies.js.forEach(function (dep) {
-    var depSrc = (dep.src) ? dep.src : dep.download;
-    var depSplit = depSrc.split('/');
-    var depName = depSplit[depSplit.length - 1];
-    injectJS = injectJS + '<script src="assets/js/' + depName + '"></script>' + '\n';
-});
-
 //Images settings
-const images = {
+var images = {
     src: dir.src + '/images/*+/*',
     build: dir.build + '/assets/images',
     watch: dir.src + '/images/*+/*',
@@ -143,7 +135,7 @@ if (project.dependencies.images) {
 }
 
 //Fonts settings
-const fonts = {
+var fonts = {
     src: dir.src + '/fonts/**/*',
     build: dir.build + '/assets/fonts',
     watch: dir.src + '/fonts/**/*',
@@ -160,7 +152,7 @@ if (project.dependencies.fonts) {
 }
 
 //JS Settings
-const js = {
+var js = {
     src: dir.src + '/js/**/*.js',
     build: dir.build + '/assets/js',
     watch: dir.src + '/js/**/*.js',
@@ -170,8 +162,17 @@ if (project.dependencies.js) {
     js.dependencies = project.dependencies.js;
 }
 
+var injectJS = '';
+project.dependencies.js.forEach(function (dep) {
+    var depSrc = (dep.src) ? dep.src : dep.download;
+    var depSplit = depSrc.split('/');
+    var depName = depSplit[depSplit.length - 1];
+    injectJS = injectJS + '<script src="assets/js/' + depName + '"></script>' + '\n';
+});
+injectJS = injectJS + '<script src="assets/js/' + project.filenames.js + '.min.js"></script>';
+
 //CSS Settings
-const css = {
+var css = {
     src: dir.src + '/scss/app.scss',
     build: dir.build + '/assets/css',
     watch: dir.src + '/scss/**/*.scss',
