@@ -83,8 +83,7 @@ const dir = {
       uglify = require('gulp-uglify'),
       sourcemaps = require('gulp-sourcemaps'),
       rename = require('gulp-rename'),
-      inject = require('gulp-inject-file'),
-      replace = require('gulp-inject-element'),
+      include = require('gulp-file-include'),
       download = require('gulp-download');
 
 //Browser Sync
@@ -118,9 +117,9 @@ if (project.serve.proxy) {
 
 //HTML Settings
 var html = {
-    src: dir.src + '/html/**/*',
+    src: [dir.src + '/html/*.html', dir.src + '/html/**/*.php'],
     build: dir.build,
-    watch: dir.src + '/html/**/*'
+    watch: [dir.src + '/html/*.html', dir.src + '/html/**/*.php', dir.src + '/html/modules/**/*']
 };
 
 //Images settings
@@ -200,7 +199,7 @@ if (project.dependencies.css) {
     css.dependencies = project.dependencies.css;
 }
 
-var injectCSS = '<link rel="stylesheet" href="' + css.build + '/' + project.filenames.css + '.css" type="text/css" />';
+var injectCSS = '<link rel="stylesheet" href="assets/css/' + project.filenames.css + '.css" type="text/css" />';
 
 ///////// TASKS ///////////
 //Image processing
@@ -257,19 +256,16 @@ gulp.task('css', ['images'], () => {
 //HTML Processing
 gulp.task('html', () => {
     gulp.src(html.src)
-        .pipe(inject({
-            pattern: '<!--\\s*inject:<filename>-->'
+        .pipe(newer({
+            dest: html.build,
+            extra: html.build + '/modules/**/*'
         }))
-        .pipe(replace({
-            uses: 'var',
-            find: [
-                'css',
-                'js'
-            ], 
-            injectStrings: [
-                injectCSS,
-                injectJS
-            ]
+        .pipe(include({
+            context: {
+                CSSFile: injectCSS,
+                JSFile: injectJS,
+                OGData: ''
+            }
         }))
         .pipe(gulp.dest(html.build));
 });
@@ -353,6 +349,10 @@ gulp.task('watch', ['browsersync'], () => {
 
     //JS
     gulp.watch(js.watch, ['js']);
+});
+
+gulp.task('watch-html', () => {
+    gulp.watch(html.watch, ['html']);
 });
 
 //Defautl
