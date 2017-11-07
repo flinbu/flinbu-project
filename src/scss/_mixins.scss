@@ -9,6 +9,23 @@
     }
 }
 
+@mixin custom-class-colors($class, $property: color, $self: false) {
+    @each $color in $colors {
+        $color-name: nth($color, 1);
+        $color-hexa: nth($color, 2);
+        @if $self {
+            &.#{$class}-#{$color-name} {
+                #{$property}: $color-hexa;
+            }
+        }
+        @else {
+            .#{$class}-#{$color-name} {
+                #{$property}: $color-hexa;
+            }
+        }
+    }
+}
+
 @mixin bg-colors() {
     @each $color in $colors {
         $color-name: nth($color, 1);
@@ -54,5 +71,8 @@
 }
 
 @function color($name) {
-    @return map-get($color, $name); 
+    @return map-get($colors, $name); 
+}
+@function network-color($name) {
+    @return map-get($networks, $name); 
 }
