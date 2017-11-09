@@ -124,9 +124,9 @@ var html = {
 
 //Images settings
 var images = {
-    src: dir.src + '/images/*+/*',
+    src: dir.src + '/images/**/*',
     build: dir.build + '/assets/images',
-    watch: dir.src + '/images/*+/*',
+    watch: dir.src + '/images/**/*',
     dependencies: false
 };
 if (project.dependencies.images) {
