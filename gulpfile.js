@@ -256,10 +256,10 @@ gulp.task('css', ['images'], () => {
 //HTML Processing
 gulp.task('html', () => {
     gulp.src(html.src)
-        .pipe(newer({
-            dest: html.build,
-            extra: html.build + '/modules/**/*'
-        }))
+        // .pipe(newer({
+        //     dest: html.build,
+        //     extra: html.build + '/modules/**/*'
+        // }))
         .pipe(include({
             context: {
                 CSSFile: injectCSS,
