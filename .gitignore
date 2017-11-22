@@ -1,3 +1,4 @@
 node_modules
 build
 dir
+.DS_Store
