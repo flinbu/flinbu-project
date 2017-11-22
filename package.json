@@ -28,15 +28,15 @@
     "brand-colors": "^2.0.1",
     "clipboard": "^1.7.1",
     "commander": "^2.11.0",
-    "embedvideos": "^1.1.9",
+    "embedvideos": "^1.2.3",
     "flinbu-svg-icons": "^1.0.0",
     "font-awesome": "git+https://github.com/FortAwesome/Font-Awesome.git",
     "gmap3": "^7.2.0",
     "jquery": "^3.2.1",
     "jquery-sticky": "git+https://github.com/garand/sticky.git",
     "owl.carousel": "git+https://github.com/OwlCarousel2/OwlCarousel2.git",
-    "popper.js": "^1.12.6",
-    "tether": "^1.4.0",
+    "popper.js": "^1.13.0",
+    "tether": "^1.4.2",
     "withinviewport": "^2.0.0"
   },
   "devDependencies": {
